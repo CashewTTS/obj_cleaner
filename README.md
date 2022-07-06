@@ -2,14 +2,15 @@
 
 This program performs some file-size optimizations on OBJ files exported from Blender for import into Tabletop Simulator (TTS) as a custom model. Additionally it works around a normal-parsing bug in TTS's OBJ parser.
 
-### Optimizations
+### File-size optimizations
 
-Each are optional:
+Comment lines and elements believed to not be used by TTS (e.g. materials, object names, smoothing groups, lines, free-form geometry) are always stripped, to simplify the rest of the processing and shorted the file a bit.
+
+Additional optimizations can be optionally applied:
 
 - Drop superfluous leading/trailing zeros in coords
 - Round coords to reduce digits
 - Deduplicate elements (e.g. multiple `vt` entries with identical coords)
-- Strip comments and elements ignored by TTS (e.g. materials)
 
 ### Workaround for TTS bug
 
